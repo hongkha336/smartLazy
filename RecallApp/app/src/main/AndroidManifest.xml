@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ute.recall">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/sunflower"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/sunflower"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".demoplant.QRActivity"></activity>
+        <activity android:name=".demoplant.ConfigActivity" />
+        <activity android:name=".demoplant.SwitchActivity" />
+        <activity android:name=".demoplant.HistoryActivity" />
+        <activity android:name=".demoplant.ShowActivity" />
+        <activity
+            android:name=".demoplant.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".demoplant.MainActivity" />
+
+        <service
+            android:name=".services.BackgroundService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".broadcast.MyBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.NOTI" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+    </application>
+
+</manifest>
